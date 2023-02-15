@@ -9,20 +9,12 @@ function isAlphanumeric(str) {
       }
     }
     str = str.toLowerCase();
-    let stringEnd = "";
-    for (let i = str.length - 1; i >= (str.length / 2); i--) {
-      stringEnd += str[i];
-    }
-    let iterateCount = (str.length / 2);
-    if ((str.length / 2) > stringEnd.length) {
-      iterateCount = stringEnd.length;
-    }
-    for (let i = 0; i < iterateCount; i++) {
-      if (str[i] !== stringEnd[i]) {
+    for (let i = 0; i < str.length / 2; i++) {
+      if (str[i] !== str[str.length - i - 1]) {
         return false;
       }
     }
     return true;
-  }
-let testString = "1 eye for of 1 eye.";
+}
+let testString = "_eye";
 console.log(palindrome(testString));
